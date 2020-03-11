@@ -1,9 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from random import uniform
+import time
 
+d_file = open('Monte.dat','w+')
 start = 10
-stop = 1000000
+stop = 100000
 _step = 100
 exactsolution = 1
 x_0 = 0
@@ -19,4 +21,6 @@ def monteCarloInt(f_n,a,b, N = 1000000):
     return (b-a)**2*s/(N)
 
 for j in np.arange(start,stop,step=_step):
-    print(monteCarloInt(lambda x:np.cos(x),x_0,x_1,j))
+    t_0 = time.time()
+    # print(monteCarloInt(lambda x:np.cos(x),x_0,x_1,j))
+    d_file.write(f'{j} {monteCarloInt(lambda x: np.cos(x),x_0,x_1,j)} {time.time()-t_0}\n')
