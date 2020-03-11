@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 from random import uniform
 
 start = 10
-stop = 30000000
+stop = 1000000
 _step = 100
 exactsolution = 1
-x_0 = 0.5
-x_1 = np.pi
+x_0 = 0
+x_1 = np.pi/2
 
 def monteCarloInt(f_n,a,b, N = 1000000):
     s = 0
@@ -21,7 +21,7 @@ ly = []
 lx = []
 
 for j in np.arange(start,stop,step=_step):
-    print((x_1-x_0)*monteCarloInt(lambda x: x**(-7)+(x**7)*np.cos(x),x_0,x_1,j))
+    print((x_1-x_0)*monteCarloInt(lambda x:np.cos(x),x_0,x_1,j))
 #     ly += [monteCarloInt(lambda x: x**4,x_0,x_1,j)]
 #     lx += [j]
 
